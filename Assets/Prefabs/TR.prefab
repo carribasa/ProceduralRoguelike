@@ -3237,7 +3237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122fb6870cc41574097dcb83844cf2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSide: 0
+  openSide: 3
 --- !u!1 &8103044164448801417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,7 +3647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122fb6870cc41574097dcb83844cf2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSide: 0
+  openSide: 1
 --- !u!1 &9186514627567449723
 GameObject:
   m_ObjectHideFlags: 0

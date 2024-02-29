@@ -18,22 +18,38 @@ public class RoomSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (openSide == 1)
+        if (spawned == false)
         {
-            rand = Random.Range(0, templates.bottomRooms.Length);
-            Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+            if (openSide == 1)
+            {
+                rand = Random.Range(0, templates.bottomRooms.Length);
+                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+            }
+            else if (openSide == 2)
+            {
+                rand = Random.Range(0, templates.topRooms.Length);
+                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+            }
+            else if (openSide == 3)
+            {
+                rand = Random.Range(0, templates.rightRooms.Length);
+                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+            }
+            else if (openSide == 4)
+            {
+                rand = Random.Range(0, templates.leftRooms.Length);
+                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+            }
+            spawned = true;
         }
-        else if (openSide == 2)
-        {
+    }
 
-        }
-        else if (openSide == 3)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("SpawnPoint") && other.GetComponent<RoomSpawner>().spawned == true)
         {
-
-        }
-        else if (openSide == 4)
-        {
-
+            Instantiate(templates.rightRooms[0], transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }
